@@ -6,4 +6,5 @@ We can think of the **element identification process** achieved through Selector
 
 ## The Structure of Selectors
 User interfaces (UIs) are built using a series of containers nested one inside the other. Let’s take the example of a selector for the First name input field in MyCRM Application, and try to understand the meaning of the structure.
-![Selector Structure](assets/Ckwm6E49rTsaa_vG_ggIDmh7P1RvAu1Zj.png "Selector Structure")
+
+![Selector Structure](https://html.cdn.contentraven.com/crcloud/crscorm/uploads/uipath_lms_11218/encryptedfile/151139/v4.0/scormcontent/assets/Ckwm6E49rTsaa_vG_ggIDmh7P1RvAu1Zj.png "Selector Structure")
