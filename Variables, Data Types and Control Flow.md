@@ -31,9 +31,19 @@ Arguments are very similar to variables – they store data dynamically, they ha
 - **String**
     - System.String: Used to store text. This type of data comes with many specific methods of processing, and will be addressed in depth in another lesson, namely Data Manipulation.
 - **Collection**
+
     This category reunites all the collections of objects, with each object being identified through its index in the collection. Collections are largely used for handling and processing complex data. Some of the most encountered collections are:
     - **Array** ArrayOf<T> or System.DataType[]: used to store multiple values of the same data type. The size (number of objects) is defined at creation; 
     - **List** System.Collections.Generic.List<T>: used to store multiple values of the same data type, just like Arrays. Unlike Arrays, their size is dynamic;
     - **Dictionary** System.Collections.Generic.Dictionary<TKey, TValue>: used to store objects in the form of (key, value) pairs, where each of the two can be of a separate data type.
 - **GenericValue**
     - This is a UiPath proprietary variable type that can store any kind of data, including text, numbers, dates, and arrays. This type is mainly used in activities in which we are not sure what type of data we will receive, yet in general the use of this is temporary.
+
+## Control Flow
+**The type of automation project**
+
+There are 4 predefined types of workflows – Sequence, Flowchart, State Machine and Global Exception Handler.
+
+We are covering them in depth in the “Project Organization” course, for now let’s focus on the difference between sequences and flowcharts, as we will use both extensively in our examples throughout the entire course.
+- In **sequences**, the process steps flow in a clear succession. Decision trees are rarely used. Activities in sequences are easier to read and maintain, thus, they are highly recommended for simple, linear workflows.
+- In **flowcharts**, the individual activities are a bit more difficult to read and edit, but the flows between them are much clearer. Use flowcharts when decision points and branching are needed in order to accommodate complex scenarios, workarounds and decision mechanisms. 
