@@ -12,21 +12,21 @@ Exceptions are events that are recognized (caught) by the program, categorized a
 Some of the exceptions are linked to the systems used, while others are linked to the logic of the business process.
 
 ## Common Exceptions
-- **NullReferenceException**, This error usually occurs when using a variable with no set value (not initialized).
-- **IndexOutOfRangeException**, Occurs when the index of an object is out of the limits of the collection.
-- **ArgumentException**, Is thrown when a method is invoked and at least one of the passed arguments does not meet the parameter specification of the called method.
-- **SelectorNotFoundException**, Is thrown when the robot is unable to find the designated selector for an activity in the target app within the TimeOut period.
-- **ImageOperationException**, Occurs when an image is not found within the TimeOut period.
-- **TextNotFoundException**, Occurs when the indicated text is not found within the TimeOut period.
-- **ApplicationException**, describes an error rooted in a technical issue, such as an application that is not responding.
+- **NullReferenceException** - This error usually occurs when using a variable with no set value (not initialized).
+- **IndexOutOfRangeException** - Occurs when the index of an object is out of the limits of the collection.
+- **ArgumentException** - Is thrown when a method is invoked and at least one of the passed arguments does not meet the parameter specification of the called method.
+- **SelectorNotFoundException** - Is thrown when the robot is unable to find the designated selector for an activity in the target app within the TimeOut period.
+- **ImageOperationException** - Occurs when an image is not found within the TimeOut period.
+- **TextNotFoundException** - Occurs when the indicated text is not found within the TimeOut period.
+- **ApplicationException** - describes an error rooted in a technical issue, such as an application that is not responding.
 
 ## Try Catch
 This activity catches a specified exception type in a sequence or activity, and either displays an error notification or dismisses it and continues the execution.
 
 As a mechanism, Try Catch runs the activities in the Try block and, if an error takes place, executes the activities in the Catch block. The Finally block is only executed when no exceptions are thrown or when an exception is caught and handled in the Catch block (without being re-thrown).
-- **Try**, The activities performed which have a chance of throwing an error.
-- **Catch**, The activity or set of activities to be performed when an error occurs. Please note that multiple errors and corresponding activities can be added in this block.
-- **Finally**, The activity or set of activities to be performed after the Try Catch block. This section is executed only when no exceptions are thrown or when an error occurs and is caught in the Catch section.
+- **Try** - The activities performed which have a chance of throwing an error.
+- **Catch** - The activity or set of activities to be performed when an error occurs. Please note that multiple errors and corresponding activities can be added in this block.
+- **Finally** - The activity or set of activities to be performed after the Try Catch block. This section is executed only when no exceptions are thrown or when an error occurs and is caught in the Catch section.
 
 ## Retry Scope
 The Retry scope activity retries the contained activities as long as the condition is not met or an error is thrown.
@@ -36,8 +36,8 @@ The Retry Scope activity is used for catching and handling an error, which is wh
 It can be used without a termination condition, in which case it will retry the activities until no exception occurs (or the provided number of attempts is exceeded).
 
 ### Additional Properties
-- **NumberOfRetries**, The number of times that the sequence is to be retried.
-- **RetryInterval**, Specifies the amount of time (in seconds) between each retry.
+- **NumberOfRetries** - The number of times that the sequence is to be retried.
+- **RetryInterval** - Specifies the amount of time (in seconds) between each retry.
 
 ## ContinueOnError Property
 Continue on Error is a property that specifies if the execution should continue even when the activity throws an error.
