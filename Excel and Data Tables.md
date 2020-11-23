@@ -35,6 +35,6 @@ In DataTables, the regular convention of identifying the columns and the rows is
     - Inner: Keep all rows from both tables that meet the Join rule. Any rows that do not meet the rule are removed from the resulting table.
     - Left: Keep all rows from DataTable1 and only the values from DataTable2 which meet the Join rule. Null values are inserted into the column for the rows from DataTable1 that don't have a match in the DataTable2 rows.
     - Full: Keep all rows from DataTable1 and DataTable2, regardless of whether the join condition is met. Null values are added into the rows from both tables that don't have a match.
-3. The Join rules have to be configured (there can be one or more rules):
+3. The **Join rules** have to be configured (there can be one or more rules):
     - One column from each DataTable has to be specified by their names (String), by their index (Int32) or by ExcelColumn variables
     - The operator has to be chosen: = (Equal to), != (Not equal to), > (Greater than), < (Less than), >= (Greater than or equal to), <= (Less than or equal to)
