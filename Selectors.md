@@ -7,4 +7,27 @@ We can think of the **element identification process** achieved through Selector
 ## The Structure of Selectors
 User interfaces (UIs) are built using a series of containers nested one inside the other. Let’s take the example of a selector for the First name input field in MyCRM Application, and try to understand the meaning of the structure.
 
-![Selector Structure](https://html.cdn.contentraven.com/crcloud/crscorm/uploads/uipath_lms_11218/encryptedfile/151139/v4.0/scormcontent/assets/Ckwm6E49rTsaa_vG_ggIDmh7P1RvAu1Zj.png "Selector Structure")
+## Tags & Attributes of Selectors
+As you saw, selectors are made of nodes. And each node is made of tags and attributes. Let's take an example to explain the two. Below is a selector node.
+
+### Tags
+- Nodes in the selector XML fragment
+- Correspond to a visual element on the screen
+- First node is the app window
+- Last node is the element itself
+
+For example:
+- **wnd** (window)
+- **html** (web page)
+- **ctrl** (control)
+- **webctrl** (web page control)
+- **java** (Java application control)
+
+### Attributes
+Every attribute has a name and a value. You should use only attributes with constant or known values.
+
+For example:
+- parentid=‘slide-list-container’
+- tag=‘A’
+- aaname=‘Details’
+- class=‘btn-dwnl’
