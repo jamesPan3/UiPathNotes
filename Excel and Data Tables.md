@@ -30,7 +30,7 @@ In DataTables, the regular convention of identifying the columns and the rows is
 
 ## Join Data Tables
 ### How Does it work?
-1. ***3 Data Table Variables** have to be specified - 2 Input DataTables and 1 Output DataTable. Please note that the order of the first 2 is very important, as there is one option that keeps the values from Data Table 1 and it cannot be changed.
+1. **3 Data Table Variables** have to be specified - 2 Input DataTables and 1 Output DataTable. Please note that the order of the first 2 is very important, as there is one option that keeps the values from Data Table 1 and it cannot be changed.
 2. The **Join Type** has to be chosen - there are 3 options:
     - Inner: Keep all rows from both tables that meet the Join rule. Any rows that do not meet the rule are removed from the resulting table.
     - Left: Keep all rows from DataTable1 and only the values from DataTable2 which meet the Join rule. Null values are inserted into the column for the rows from DataTable1 that don't have a match in the DataTable2 rows.
