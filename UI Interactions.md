@@ -11,12 +11,15 @@ Input methods provide the input actions with the means to input data. Each input
 ***How does it work?***
 - Clicks: the mouse cursor moves across the screen
 - Typing: the keyboard driver is used to type individual characters
+
 ***What are the implications?***
 - Attended User cannot touch the mouse or keyboard during the automation
 - It has a lower speed and load times can impact accuracy
+
 ***What are the strong points?***
 - Supports special keys like Enter, Tab, and other hotkeys
 - 100% compatibility
+
 ***What are the limitations?***
 - Does not automatically erase previously written text
 - Does not work in the background
@@ -25,12 +28,15 @@ Input methods provide the input actions with the means to input data. Each input
 ***How does it work?***
 - Replays the window messages that the target application receives when the mouse/keyboard is used
 - Clicking and typing occur instantly
+
 ***What are the implications?***
 - Works in the background
 - Comparable to the Default method in terms of speed
+
 ***What are the strong points?***
 - Supports special keys like Enter, Tab, and other hotkeys
 - Users can work on other activities during the execution of the automated processes
+
 ***What are the limitations?***
 - Does not automatically erase previously written text
 - Works only with applications that respond to Window Messages
@@ -39,12 +45,15 @@ Input methods provide the input actions with the means to input data. Each input
 ***How does it work?***
 - Uses the technology of the target application (the API level) to send instructions
 - Clicking and typing occur instantly
+
 ***What are the implications?***
 - Works in the background
 - Actions are a lot faster, but there are some compatibility limitations
+
 ***What are the strong points?***
 - Can automatically erase previously written text
 - Users can work on other activities during the execution of the automated processes
+
 ***What are the limitations?***
 - Does not support special keys like Enter, Tab, and other hotkeys
 - It has a lower compatibility than the other 2 methods
