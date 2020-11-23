@@ -1,8 +1,9 @@
 # Project Organization
 
 ## How to choose the best project layout?
+
 ### Sequence
-***When to use it?**
+**When to use it?**
 - When there’s clear succession of steps, without too many conditions (for example, a UI automation);
 - Usually, Sequences are used to nest workflows and the high-level logic is handled through Flowcharts or State Machines.
 
