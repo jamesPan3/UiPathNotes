@@ -89,6 +89,7 @@ A process represents the association between a package and an environment. Proce
 
 If the Main.xaml of the process has In, Out, or In/Out arguments, they are displayed on the Parameters tab of the View Processes window. In Orchestrator, they become input and output parameters and they can be configured from the Parameters tab.
 
+# Jobs and Schedules
 Once a process is created, its execution can be triggered. There are 3 ways to do it:
 
 ## Using Jobs (immediately)
@@ -117,3 +118,70 @@ To run a process directly from the Robot Tray:
 - open the robot;
 - if the package has an update available, you will see an up arrow from which you can update it in your robot;
 - once this is done, you can run the process by clicking the 'Play icon'.
+
+# Assets
+## What are Assets?
+Assets are shared variables or credentials that are stored in the Orchestrator and used by the robots in different automation projects. They can be considered a data repository that the robots can access when running processes, based on clear instructions.
+
+There are four types of assets:
+- **Text** - the equivalent of String (it is not required to add quotation marks)
+- **Bool** - supports true or false values
+- **Integer** - stores only whole numbers
+- **Credential** - contains usernames and passwords that the Robot requires to execute particular processes, such as login details for SAP or SalesForce.
+
+## What are some business scenarios in which I will use Assets?
+- When data doesn't change from one execution of a process to another, so it doesn't make sense to assign it every time from the Parameters tab. At the same time, data that may change shouldn't be stored in the workflow;
+- Whenever robots need credentials to access applications in an automation scenario. The Credentials stored as Assets are encrypted with the AES 256 algorithm.
+
+## How are Assets created and used?
+In **Orchestrator**:
+- Assets can be created from the dedicated area;
+- The name and the data type have to be provided. By using the tabs, assets can be configured as follows:
+    - Single Value - can be accessed and used by all Robots;
+    - Value Per Robot - each value provided can be accessed only by the indicated Robot.
+- Assets can be modified or deleted from the same menu.
+
+In **Studio**:
+- For credentials, the 'Get Credential' activity has to be used;
+- For all the other types of assets, the 'Get Asset' activity is used.
+
+# Queues
+## What are Queues?
+Queues are containers that can hold an unlimited number of items. Queues in Orchestrator will store items and allow their distribution individually to robots for processing, and monitoring the status of the items based on the process outcomes.
+
+Working with Queues brings a series of advantages, especially for large automations with multiple types of elements underlined by a complex logic:
+- centralized depository of work items;
+- reporting capabilities at individual item level, as well as queue level;
+- effectiveness of item distribution process - anytime a robot becomes available, the queue item in line is dispatched;
+- unitary logic of item distribution - such as First In, First Out.
+
+## What are some business scenarios in which I will use Queues?
+Items in the Orchestrator Queues are known as transactions. They are meant to be indivisible units of work - a customer contract, an invoice, a complaint, and so on.
+
+Working with Queues is very useful for large automations mainly, where the number of items is high and the distribution process may become problematic. Consider the following examples:
+- New customer enrollment forms for a retail company - these may come from different sources (online, partners, own shops, call center) and having a smooth process of adding them to the processing line is crucial. Working with Queues will ensure that these are processed within the SLA time constraints;
+- The complaint process of a worldwide retailer, having contact centers in many locations across the world - working with Queues will ensure that the items are centralized in a single depository and distributed to the available resources as they become available.
+
+## Working with Queues
+Queues are easily created in Orchestrator. When they are created, queues are empty, but there are specific activities in the UiPath Studio to make the robots populate Queues. Bulk upload is also supported directly in Orchestrator, from .csv files. 
+
+When creating a queue, you set the **maximum number of retries** (the number of times you want a queue item to be retried) and the **Unique Reference** field (select Yes if you want the transaction references to be unique). Once a queue was created, these settings can not be modified 
+
+Queues are very important for the Dispatcher & Performer model, in which the two main stages of a process involving queues is separated:
+- the stage in which data is taken and fed into a queue in Orchestrator, from where it can be taken and processed by the robots. This is called Dispatcher;
+- the stage in which the data is processed, called Performer.
+
+Below are the main activities used to program the robots to work with queues:
+- **Add Queue Item** - When encountering this activity in a workflow, the robot will send an item to the designated Queue and will configure the time frame and the other parameters.
+- **Add Transaction Item** - The robot adds an item in the queue and starts the transaction with the status 'In progress'. The queue item cannot be sent for processing until the robot finalizes this activity and updates the status.
+- **Get Transaction Item** - Gets an item from the queue to process it, setting the status to 'In progress'.
+- **Postpone Transaction Item** - Adds time parameters between which a transaction must be processed.
+- **Set Transaction Progress** - Enables the creation of custom progress statuses for In Progress transactions. This can be useful for transactions that have a longer processing duration, and breaking down the workload will give valuable information.
+- **Set Transaction Status** - Changes the status of the transaction item to Failed (with an Application or Business Exception) or Successful. As a general approach, a transaction failed due to Application Exceptions will be retried, and a transactions failed due to Business Exceptions will not be retried. A Queue item can have one of the following statuses:
+    - New - just added to the queue with Add Queue Item (or the item was postponed or a deadline was added to it).
+    - In Progress - the item was processed with the Get Transaction Item or the Add Transaction Item activity;
+    - Failed - the item did not meet a business or application requirement within the project;
+    - Successful - the item was processed;
+    - Abandoned - the item remained in the In Progress status for a long period of time (approx. 24 hours) without being processed;
+    - Retried - the item failed with an application exception and was retried (at the end of the process retried, the status will be updated to a final one - Sucessful or Failed)
+    - Deleted - the item has been manually deleted from the Transactions page
